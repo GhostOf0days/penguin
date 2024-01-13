@@ -89,18 +89,18 @@ version_info() {
 }
 
 # update_script() {
-    update="$(curl -s -A "$agent" "https://raw.githubusercontent.com/pystardust/ani-cli/master/ani-cli")" || die "Connection error"
-    update="$(printf '%s\n' "$update" | diff -u "$0" -)"
-    if [ -z "$update" ]; then
-        printf "Script is up to date :)\n"
-    else
-        if printf '%s\n' "$update" | patch "$0" -; then
-            printf "Script has been updated\n"
-        else
-            die "Can't update for some reason!"
-        fi
-    fi
-    exit 0
+    # update="$(curl -s -A "$agent" "https://raw.githubusercontent.com/pystardust/ani-cli/master/ani-cli")" || die "Connection error"
+    # update="$(printf '%s\n' "$update" | diff -u "$0" -)"
+    # if [ -z "$update" ]; then
+        # printf "Script is up to date :)\n"
+    # else
+        # if printf '%s\n' "$update" | patch "$0" -; then
+            # printf "Script has been updated\n"
+        # else
+            # die "Can't update for some reason!"
+       # fi
+    # fi
+    # exit 0
 #}
 
 # checks if dependencies are present
