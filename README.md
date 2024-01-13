@@ -22,10 +22,10 @@ Install [dependencies](#Dependencies) before installing penguin.
 
 ```sh
 cd ~
-sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/lobster-cli > lobster-cli
-sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/drama-cli > drama-cli
-sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/anime-cli > anime-cli
-sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/penguin > penguin
+sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/lobster-cli.sh > lobster-cli
+sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/drama-cli.sh > drama-cli
+sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/anime-cli.sh > anime-cli
+sudo curl -sL https://raw.githubusercontent.com/GhostOf0days/penguin/main/penguin.sh > penguin
 chmod +x lobster-cli
 chmod +x drama-cli
 chmod +x anime-cli

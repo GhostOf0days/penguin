@@ -48,7 +48,7 @@ die () {
 
 # get the newest version of this script from github and replace it
  update_script() {
-	update="$(curl -s "https://raw.githubusercontent.com/GhostOf0days/penguin/main/drama-cli" | diff -u "$0" -)"
+	update="$(curl -s "https://raw.githubusercontent.com/GhostOf0days/penguin/main/drama-cli.sh" | diff -u "$0" -)"
     if [ -z "$update" ]; then
         printf "Script is up to date :)\n"
     else
