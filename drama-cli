@@ -21,7 +21,7 @@ help_text () {
 	  -d download episode
 	  -p download episode to specified directory
 	  -q set video quality (best|worst|360|480|720|1080)
-	  -v use VLC as the media player
+	  -v use mpv as the media player
 	  -D delete history
 	  -U fetch update from github
 	  -V print version number and exit
@@ -397,7 +397,7 @@ play_episode () {
 trap 'printf "\033[0m";[ -f "$logfile".new ] && rm "$logfile".new;exit 1' INT HUP
 
 # default options
-player_fn="mpv" #video player needs to be able to play urls
+player_fn="vlc" #video player needs to be able to play urls
 is_download=0
 PID=0
 quality=best
@@ -436,7 +436,7 @@ while getopts 'vq:dp:chDUVa:' OPT; do
 			scrape=history
 			;;
 		v)
-			player_fn="vlc"
+			player_fn="mpv"
 			;;
 		U)
 			update_script
