@@ -101,6 +101,12 @@ trap cleanup EXIT INT TERM
     fi
 
     configuration() {
+        # Detect Operating System and set default media player
+        case "$(uname)" in
+            *Darwin*) player="iina" ;; # macOS default to IINA
+            *)        player="mpv" ;;  # Default to mpv or other player for non-macOS
+        esac
+
         [ -n "$XDG_CONFIG_HOME" ] && config_dir="$XDG_CONFIG_HOME/lobster" || config_dir="$HOME/.config/lobster"
         [ -n "$XDG_DATA_HOME" ] && data_dir="$XDG_DATA_HOME/lobster" || data_dir="$HOME/.local/share/lobster"
         [ ! -d "$config_dir" ] && mkdir -p "$config_dir"
