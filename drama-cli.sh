@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #######################
 # AUXILIARY FUNCTIONS #
@@ -372,6 +372,9 @@ play_episode () {
 			[ ! "$auto_play" -eq 0 ] && set -- "$@" "--play-and-exit"
 			set -- "$@" --http-referrer="$dpage_link"
 			;;
+		iina) # Handling for IINA player
+            set -- "$@" --no-stdin --keep-running --mpv-force-media-title="${drama_id}${episode}"
+            ;;
 		*)
 			set -- "$@" --referrer="$dpage_link" --force-media-title="${drama_id}${episode}"
 			;;
@@ -395,8 +398,14 @@ play_episode () {
 # clears the colors and deletes temporary logfile when exited using SIGINT
 trap 'printf "\033[0m";[ -f "$logfile".new ] && rm "$logfile".new;exit 1' INT HUP
 
+# Detect Operating System and set default media player
+case "$(uname)" in
+    *Darwin*) player_fn="iina" ;; # macOS default to IINA
+    *)        player_fn="mpv" ;;  # Default to mpv or other player
+esac
+
+
 # default options
-player_fn="mpv" #video player needs to be able to play urls
 is_download=0
 PID=0
 quality=best
